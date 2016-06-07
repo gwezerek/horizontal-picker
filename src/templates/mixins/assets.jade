@@ -1,0 +1,23 @@
+mixin css(filename)
+  if development
+    link(rel='stylesheet', href='#{STATIC_URL}/css/#{filename}')
+  else
+    link(rel='stylesheet', href='#{STATIC_URL}/css/#{filename}?v=#{cache_bust["public/css/" + filename]}')
+
+mixin cssinline(filename)
+  link(rel='stylesheet', inline, href='../../public/css/#{filename}')
+
+mixin js(filename)
+  if development
+    script(src='#{STATIC_URL}/js/#{filename}', defer)
+  else
+    script(src='#{STATIC_URL}/js/#{filename}?v=#{cache_bust["public/js/" + filename]}', defer)
+
+mixin jsinline(filename)
+  script(src='../../public/js/#{filename}', inline, defer)
+
+mixin img(filename, alt)
+    if development
+        img(src='#{STATIC_URL}/images/#{filename}' alt='#{alt}')
+    else
+        img(src='#{STATIC_URL}/images/#{filename}?v=#{cache_bust["public/images/" + filename]}' alt='#{alt}')

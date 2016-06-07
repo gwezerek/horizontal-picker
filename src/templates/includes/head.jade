@@ -1,0 +1,50 @@
+meta(charset='UTF-8')
+meta(name='viewport', content='width=device-width, initial-scale=1')
+meta(http-equiv='X-UA-Compatible', content='IE=edge')
+title #{pageconfig.title} | FiveThirtyEight
+meta(name='google-site-verification', content='u4S1gkGQ7IEq1C4S6i3KdYNnPhtuqfsaSIeP0Qqin68')
+meta(property='og:type', content='article')
+meta(property='og:title', content='#{pageconfig.title}')
+meta(property='og:url', content='#{pageconfig.url}')
+meta(property='og:description', content='#{pageconfig.description}')
+meta(property='article:published_time', content='#{utils.formatPublishTimeMeta(pageconfig.publishtime)}')
+meta(property='article:modified_time' content='#{utils.formatPublishTimeMeta(pageconfig.publishtime)}')
+meta(property='og:site_name', content='FiveThirtyEight')
+meta(property='og:locale', content='en_US')
+meta(property='og:image', content='#{pageconfig.shareimage}')
+meta(name='twitter:image:src', content='#{pageconfig.shareimage}')
+meta(name='twitter:card', content='summary_large_image')
+meta(property='article:publisher', content='https://www.facebook.com/FiveThirtyEight')
+meta(property='fb:app_id', content='797620670264818')
+meta(name='twitter:widgets:csp', content='on')
+meta(name='twitter:maxage', content='300')
+meta(name='twitter:site', content='FiveThirtyEight')
+meta(name='twitter:site:id', content='2303751216')
+meta(name='twitter:creator', content='#{pageconfig.twittercreator}')
+meta(name='twitter:creator:id', content='#{pageconfig.twittercreatorid}')
+link(rel='search', type='application/opensearchdescription+xml', href='http://fivethirtyeight.com/osd.xml', title='FiveThirtyEight')
+link(rel='search', type='application/opensearchdescription+xml', href='https://wordpress.com/opensearch.xml', title='WordPress.com')
+meta(name='application-name', content='FiveThirtyEight')
+meta(name='description', content='#{pageconfig.description}')
+meta(name='author', content='#{pageconfig.author}')
+meta(property='article:author', content='#{pageconfig.authorurl}')
+meta(name='news_keywords', content='#{pageconfig.newskeywords}')
+link(rel='author', href='#{pageconfig.authorurl}')
+link(rel='shortlink', href='#{pageconfig.shorturl}')
+link(rel='shortcut icon', type='image/x-icon', href='https://projects.fivethirtyeight.com/shared/favicon.ico')
+link(rel='icon', type='image/x-icon', href='https://projects.fivethirtyeight.com/shared/favicon.ico')
+link(rel='apple-touch-icon', href='https://projects.fivethirtyeight.com/shared/apple-touch-icon.png')
+link(rel='canonical', href='#{pageconfig.url}')
+script(type='text/javascript').
+  var trackingConfig = {
+    postId: "#{pageconfig.wordpressid}",
+    section: "#{pageconfig.wordpresssection}",
+    primaryTag: "#{utils.slugify(pageconfig.primarytag)}",
+    pageName: "#{pageconfig.shortname}",
+    title: "#{pageconfig.title}",
+    author: "#{pageconfig.author}",
+    authorSlug: "#{pageconfig.author.split(',')[0].split(' and ')[0].split(' ').reverse().join('_').toLowerCase()}",
+    fullUrl: "#{pageconfig.url}",
+    shortUrl: "#{pageconfig.shorturl}",
+    twitterText: "#{pageconfig.twittertext}"
+  }

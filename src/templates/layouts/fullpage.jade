@@ -1,0 +1,17 @@
+include ../mixins/assets
+
+doctype html
+html(lang="en")
+  head
+    include ../includes/head.jade
+    include ../includes/ga.jade
+    mixin css('app.css')
+  body
+    include ../includes/header.jade
+    block content
+    block credits
+    include ../includes/recirc.jade
+    include ../includes/footer.jade
+    //mixin js('common.js')
+    mixin js('bundle.js')
+    //include ../includes/ads_and_tracking.html

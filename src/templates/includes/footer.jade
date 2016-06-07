@@ -1,0 +1,55 @@
+
+#entry-comments.fte-expandable.container
+    h3#fte-expandable-title
+        | Comments
+        span.add-comment Add Comment
+        |     
+        span#fte-expandable-icon
+        | &#x9;
+    #entry-comments-content.fte-expandable-content(style='display: none')
+        #fb-comments.fb-comments.fb_iframe_widget(data-href="#{pageconfig.url}", data-numposts='5', data-colorscheme='light', data-width='100%', data-order-by='reverse_time')
+
+
+#colophon(class="site-footer js")
+    .site-wrapper.footer-main-content
+        .footer-section-get-more
+            | Get more FiveThirtyEight
+        .footer-section-primary-links
+            ul.footer-menu
+                li.footer-menu-item
+                    a(href='http://fivethirtyeight.com/newsletter/') Newsletter
+                li.footer-menu-item
+                    a(href='http://fivethirtyeight.com/tag/fivethirtyeight-podcasts/') Podcasts
+                li.footer-menu-item
+                    a(href='https://twitter.com/fivethirtyeight') Twitter
+                li.footer-menu-item
+                    a(href='https://www.facebook.com/fivethirtyeight') Facebook
+                li.footer-menu-item
+                    a(href='https://github.com/fivethirtyeight') Github
+                li.footer-menu-item
+                    a(href='http://fivethirtyeight.com/datalab/fear-not-readers-we-have-rss-feeds/') RSS
+
+        .footer-section-secondary-links
+            ul.footer-menu
+                li.footer-menu-item
+                    a(href='http://fivethirtyeight.com/contact/') Contact
+                li.footer-menu-item
+                    a(href='http://fivethirtyeight.com/jobs/') Jobs
+                li.footer-menu-item
+                    a(href='http://fivethirtyeight.com/masthead/') Masthead
+                li.footer-menu-item
+                    a(href='#footer-additional-info' id="additional-info-toggle" class="additional-info-toggle") Privacy and Terms of Service
+
+    .footer-section-additional-info(id="footer-additional-info")
+        .site-wrapper
+            button(class="close-additional-info" id="close-additional-info")
+                span.visually-hidden Close Additional Information
+            a(href='http://disneytermsofuse.com/') Terms of Use
+            |  and 
+            a(href='https://disneyprivacycenter.com/') Privacy Policy
+            |  and Safety Information/
+            a(href='https://disneyprivacycenter.com/notice-to-california-residents/') Your California Privacy Rights
+            | /
+            a(href='https://disneyprivacycenter.com/kids-privacy-policy/english/') Children&apos;s Online Privacy Policy
+            |  are applicable to you. &copy;2015 ESPN Internet Ventures. All rights reserved. 
+            a(href='https://preferences-mgr.truste.com/?type=espn&affiliateId=148') Interest-Based Ads.

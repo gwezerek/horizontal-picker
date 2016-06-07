@@ -1,0 +1,252 @@
+<!-- Omniture -->
+<script type="text/javascript">
+  var orientiation = (window.innerWidth >= window.innerHeight) ? 'landscape' : 'portrait',
+      orientiation = window.orientation ? orientiation : 'desktop',
+      page = 'general',
+      prefix = "&lpos=fivethirtyeight:",
+      site = "fivethirtyeight",
+      loadCount = 1,
+      isTab = false,
+      currentTab = null;
+
+  loadOmniture = function() {
+      if (espn && espn.track) {
+          espn.track.init = function() {
+
+              var data = {
+                  "omniture": {
+                      "premium": "n",
+                      "lang": "en_us",
+                      "countryRegion": "en-us",
+                      "userKey": "unknown:unknown:anonymous:insider-no:premium-no",
+                      "insiderStatus": "anonymous:premium-no",
+                      "eVar1": "DoNotSet",
+                      "birthAge": "unknown",
+                      "gender": "unknown",
+                      "loginStatus": "anonymous",
+                      "regType": "unknown",
+                      "fantasyPersonalize": "has favorites:no-fantasy:no-notifications:no-docking:no-autostart:no",
+                      "site": "fivethirtyeight",
+                      "pageName": trackingConfig.section + ":interactives:" + trackingConfig.pageName,
+                      "sections": trackingConfig.section + ":" + trackingConfig.primaryTag,
+                      "section": trackingConfig.section,
+                      "account": "wdgespfivethirtyeight",
+                      "contentType": "interactives",
+                      "prop35": "interactives",
+                      "events": "event3",
+                      "srchKwd": "",
+                      "srchTerm": "",
+                      "srchNumResults": "",
+                      "storyId": trackingConfig.postId + "+" + trackingConfig.title,
+                      "columnist": trackingConfig.author,
+                      "espn3ContentType": "interactives:fivethirtyeight:" + trackingConfig.section
+                  },
+                  "chartbeat": {
+                      "domain": "fivethirtyeight.com",
+                      "path": "/" + trackingConfig.pageName,
+                      "sections": trackingConfig.section,
+                      "authors": trackingConfig.author,
+                      "title": trackingConfig.title,
+                      "loadPubJS": false,
+                      "loadVidJS": true
+                  }
+              }
+
+              data.omniture.loginStatus = document.body.className.match('logged-in') ? 'wp-logged-in' : 'wp-logged-out';
+              data.omniture.orientation = orientiation;
+              data.omniture.deviceInfo = orientiation;
+
+              // Init Chartbeat
+              espn.track.initCB(data.chartbeat);
+
+              // Global analytics properties used by video players
+              var anData = data.omniture;
+              if (anData.account) {
+                  window.s_account = anData.account;
+              }
+
+              if (anData.site) {
+                  window.omniSite = anData.site;
+                  if (anData.pageName) {
+                      window.omniPageName = [anData.site, anData.pageName].join(':');
+                  }
+              }
+
+              window.omniTrackingName = "interactives:" + trackingConfig.pageName;
+              espn.track.data = data;
+              anData.enableCB = false;
+              espn.track.trackPage(anData);
+          }
+      }
+  }
+
+  function updateForSocial(el, linkId) {
+      if (espn && espn.track) {
+          espn.track.trackLink({
+              link: el,
+              linkPos: window.s_omni.prop4,
+              linkId: linkId,
+              site: 'fivethirtyeight',
+              pageName: window.s_omni.pageName,
+              events: 'event62',
+              socialShare: linkId,
+              storyInfo: window.s_omni.prop15,
+              section: window.s_omni.channel
+          });
+      }
+  }
+
+  function getScript(source, callback) {
+      var script = document.createElement('script');
+      var prior = document.getElementsByTagName('script')[0];
+      script.async = 1;
+      prior.parentNode.insertBefore(script, prior);
+      script.onload = script.onreadystatechange = function(_, isAbort) {
+          if (isAbort || !script.readyState || /loaded|complete/.test(script.readyState)) {
+              script.onload = script.onreadystatechange = null;
+              script = undefined;
+              if (!isAbort) {
+                  if (callback) callback();
+              }
+          }
+      };
+      script.src = source;
+  }
+
+  getScript('https://cdn.secure.espn.go.com/combiner/c?js=jquery-1.10.2.js%2Canalytics%2FVisitorAPI.js%2Canalytics%2FsOmni.2.js&ver=4.4', function() {
+    loadOmniture();
+    espn.track.init();
+  });
+
+</script>
+<!-- End Omniture -->
+
+<!-- Google Ad -->
+<script type="text/javascript">
+			function get_viewport() {
+				var e = window, a = 'inner';
+				if ( ! ('innerWidth' in window ) ) {
+					a = 'client';
+					e = document.documentElement || document.body;
+				}
+				return { width : e[ a + 'Width' ] , height : e[ a + 'Height' ] };
+			};
+
+			function get_current_bp() {
+				if ( get_viewport().width < 765 ) {
+					return 'small';
+				}
+				return 'big';
+			};
+
+			var googletag = googletag || {};
+			googletag.cmd = googletag.cmd || [];
+
+			var current_bp, refKey, referringSite, ref = document.referrer, refsMap = {'facebook.com': 'facebook', 'twitter.com|/t.co/': 'twitter', 'plus.url.google.com|plus.google.com': 'googleplus', 'google.com': 'google', 'bing.com': 'bing', 'yahoo.com': 'yahoo', 'pinterest.com': 'pinterest', 'reddit.com': 'reddit', 'espn.go.com': 'espn', 'fivethirtyeight.com': 'fivethirtyeight', 'grantland.com': 'grantland'};
+
+			(function() {
+				var gads = document.createElement('script');
+				gads.async = true;
+				gads.type = 'text/javascript';
+				gads.src = 'https://www.googletagservices.com/tag/js/gpt.js';
+				var node = document.getElementsByTagName('script')[0];
+				node.parentNode.insertBefore(gads, node);
+				current_bp = get_current_bp();
+			})();
+
+			googletag.cmd.push(function() {
+				var mapping = googletag.sizeMapping().
+				addSize([0,0], [320,50]).
+				addSize([728,50], [[728,90],[970,66],[924,50]]).
+				build();
+
+				slotWallpaper = googletag.defineSlot("/6444/espn.fivethirtyeight.com." + trackingConfig.section + "/interactives", [[1680,1050],[1280,455]], "ad-Wallpaper").addService(googletag.pubads()).setTargeting("sp", "fivethirtyeight").setTargeting("objid", trackingConfig.postId).setTargeting("col", trackingConfig.authorSlug).setTargeting("pos", "Wallpaper");
+				slotBanner = googletag.defineSlot("/6444/espn.fivethirtyeight.com." + trackingConfig.section + "/interactives", [[728,90],[970,66],[924,50],[320,50],[1,1]], "ad-Banner").addService(googletag.pubads()).setTargeting("sp", "fivethirtyeight").setTargeting("objid", trackingConfig.postId).setTargeting("col", trackingConfig.authorSlug).setTargeting("pos", "Banner").defineSizeMapping(mapping);
+				slotSponsoredBy = googletag.defineSlot("/6444/espn.fivethirtyeight.com." + trackingConfig.section + "/interactives", [[200,24],[1,1]], "ad-SponsoredBy").addService(googletag.pubads()).setTargeting("sp", "fivethirtyeight").setTargeting("objid", trackingConfig.postId).setTargeting("col", trackingConfig.authorSlug).setTargeting("pos", "SponsoredBy");
+				slotInContent = googletag.defineSlot("/6444/espn.fivethirtyeight.com." + trackingConfig.section + "/interactives", [[300,250],[1,1]], "ad-InContent").addService(googletag.pubads()).setTargeting("sp", "fivethirtyeight").setTargeting("objid", trackingConfig.postId).setTargeting("col", trackingConfig.authorSlug).setTargeting("pos", "InContent");
+				slotInContentMobile = googletag.defineSlot("/6444/espn.fivethirtyeight.com." + trackingConfig.section + "/interactives", [[300,250],[1,1]], "ad-InContentMobile").addService(googletag.pubads()).setTargeting("sp", "fivethirtyeight").setTargeting("objid", trackingConfig.postId).setTargeting("col", trackingConfig.authorSlug).setTargeting("pos", "InContentMobile");
+				slotOverlay = googletag.defineOutOfPageSlot("/6444/espn.fivethirtyeight.com." + trackingConfig.section + "/interactives", "ad-Overlay").addService(googletag.pubads()).setTargeting("sp", "fivethirtyeight").setTargeting("objid", trackingConfig.postId).setTargeting("col", trackingConfig.authorSlug).setTargeting("pos", "Overlay");
+
+				for (refKey in refsMap) {
+					if (ref.match(refKey)) {
+						referringSite = refsMap[refKey];
+						break;
+					}
+				}
+
+				if (referringSite) {
+					slotWallpaper.setTargeting('ref', referringSite);
+					slotBanner.setTargeting('ref', referringSite);
+					slotSponsoredBy.setTargeting('ref', referringSite);
+					slotInContent.setTargeting('ref', referringSite);
+					slotInContentMobile.setTargeting('ref', referringSite);
+					slotOverlay.setTargeting('ref', referringSite);
+				}
+
+				googletag.pubads().enableSingleRequest();
+				googletag.pubads().collapseEmptyDivs();
+				googletag.enableServices();
+
+				function refreshForBreakpointChange() {
+					var bp = get_current_bp();
+					if (bp !== current_bp) {
+						current_bp = bp;
+						clearTimeout(self.timeoutHook);
+						self.timeoutHook = setTimeout(function() {
+							googletag.cmd.push(function () {
+								googletag.pubads().refresh([slotBanner, slotInContent, slotInContentMobile]);
+							});
+						}, 250);
+					}
+				}
+
+				window.onresize = function() {
+					refreshForBreakpointChange();
+				}
+			});
+</script>
+
+<div id="ad-wrapper" class="ad-wrapper" style="display:none">
+	<div id="ad-Banner" class="ad-banner">
+		<script type="text/javascript">googletag.cmd.push(function() { googletag.display( "ad-Banner" ); });</script>
+	</div>
+</div>
+
+<script type="text/javascript">
+  var adWrapper = document.getElementById("ad-wrapper");
+  document.getElementById("ad").appendChild(adWrapper);
+  adWrapper.style.display = "table-cell";
+</script>
+<!-- End Google ad -->
+
+<div id="fb-root"></div>
+
+<script type="text/javascript">
+
+  document.getElementById("facebook-sharer").onmousedown = function() {
+    updateForSocial( this, 'facebook' );
+    return false;
+  }
+
+  document.getElementById("twitter-sharer").onmousedown = function() {
+    updateForSocial( this, 'twitter' );
+    return false;
+  }
+
+  document.getElementById("fte-expandable-title").onclick = function() {
+    if (document.getElementById("fte-expandable-icon").classList.contains('fte-open')) {
+      document.getElementById("entry-comments-content").style.display = "none";
+    } else {
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#version=v2.3&xfbml=1&appId=797620670264818";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+      document.getElementById("entry-comments-content").style.display = "block";
+    }
+    document.getElementById("fte-expandable-icon").classList.toggle("fte-open");
+  }
+</script>

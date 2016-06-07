@@ -1,0 +1,22 @@
+include ../mixins/assets
+
+doctype html
+html(lang='en')
+  head
+    script('type'='text/javascript').
+      if (document.domain.indexOf('fivethirtyeight.com') >= 0) {
+        document.domain = 'fivethirtyeight.com';
+      }
+    title
+      | FiveThirtyEight
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    meta(http-equiv='X-UA-Compatible' content='IE=10; IE=9; IE=8; IE=7; IE=EDGE')
+    mixin css('app.css')
+    link(rel='stylesheet', href='//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css')
+    link(rel='stylesheet', href='//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css')
+    link(rel='stylesheet', href='//https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.x.x/css/swiper.css')
+    base(target='_parent')
+
+  body
+    block content
+    mixin js('bundle.js')
