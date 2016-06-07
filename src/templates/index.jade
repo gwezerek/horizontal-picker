@@ -4,117 +4,8 @@ extends layouts/iframe
 
 block content
 
-  ol.picker-ol
-    li.picker-li United States
-    li.picker-li Alabama
-    li.picker-li Alaska
-    li.picker-li Arizona
-    li.picker-li Arkansas
-    li.picker-li California
-    li.picker-li Colorado
-    li.picker-li Connecticut
-    li.picker-li Delaware
-    li.picker-li Florida
-    li.picker-li Georgia
-    li.picker-li Hawaii
-    li.picker-li Idaho
-    li.picker-li Illinois
-    li.picker-li Indiana
-    li.picker-li Iowa
-    li.picker-li Kansas
-    li.picker-li Kentucky
-    li.picker-li Louisiana
-    li.picker-li Maine
-    li.picker-li Maryland
-    li.picker-li Massachusetts
-    li.picker-li Michigan
-    li.picker-li Minnesota
-    li.picker-li Mississippi
-    li.picker-li Missouri
-    li.picker-li Montana
-    li.picker-li Nebraska
-    li.picker-li Nevada
-    li.picker-li New Hampshire
-    li.picker-li New Jersey
-    li.picker-li New Mexico
-    li.picker-li New York
-    li.picker-li North Carolina
-    li.picker-li North Dakota
-    li.picker-li Ohio
-    li.picker-li Oklahoma
-    li.picker-li Oregon
-    li.picker-li Pennsylvania
-    li.picker-li Rhode Island
-    li.picker-li South Carolina
-    li.picker-li South Dakota
-    li.picker-li Tennessee
-    li.picker-li Texas
-    li.picker-li Utah
-    li.picker-li Vermont
-    li.picker-li Virginia
-    li.picker-li Washington
-    li.picker-li West Virginia
-    li.picker-li Wisconsin
-    li.picker-li Wyoming
-
-  div.slick-ol
-    div.slick-li United States
-    div.slick-li Alabama
-    div.slick-li Alaska
-    div.slick-li Arizona
-    div.slick-li Arkansas
-    div.slick-li California
-    div.slick-li Colorado
-    div.slick-li Connecticut
-    div.slick-li Delaware
-    div.slick-li Florida
-    div.slick-li Georgia
-    div.slick-li Hawaii
-    div.slick-li Idaho
-    div.slick-li Illinois
-    div.slick-li Indiana
-    div.slick-li Iowa
-    div.slick-li Kansas
-    div.slick-li Kentucky
-    div.slick-li Louisiana
-    div.slick-li Maine
-    div.slick-li Maryland
-    div.slick-li Massachusetts
-    div.slick-li Michigan
-    div.slick-li Minnesota
-    div.slick-li Mississippi
-    div.slick-li Missouri
-    div.slick-li Montana
-    div.slick-li Nebraska
-    div.slick-li Nevada
-    div.slick-li New Hampshire
-    div.slick-li New Jersey
-    div.slick-li New Mexico
-    div.slick-li New York
-    div.slick-li North Carolina
-    div.slick-li North Dakota
-    div.slick-li Ohio
-    div.slick-li Oklahoma
-    div.slick-li Oregon
-    div.slick-li Pennsylvania
-    div.slick-li Rhode Island
-    div.slick-li South Carolina
-    div.slick-li South Dakota
-    div.slick-li Tennessee
-    div.slick-li Texas
-    div.slick-li Utah
-    div.slick-li Vermont
-    div.slick-li Virginia
-    div.slick-li Washington
-    div.slick-li West Virginia
-    div.slick-li Wisconsin
-    div.slick-li Wyoming
-
-  //- Slider main container
-  .swiper-container
-    //- Additional required wrapper
+  .state-cards
     .swiper-wrapper
-      //- Slides
       div.swiper-slide United States
       div.swiper-slide Alabama
       div.swiper-slide Alaska
@@ -167,59 +58,56 @@ block content
       div.swiper-slide Wisconsin
       div.swiper-slide Wyoming
 
-  //- //- Slider main container
-  //- .swiper-container
-  //-   //- Additional required wrapper
-  //-   .swiper-wrapper
-  //-     //- Slides
-  //-     div.swiper-slide USA
-  //-     div.swiper-slide AL
-  //-     div.swiper-slide AK
-  //-     div.swiper-slide AZ
-  //-     div.swiper-slide AR
-  //-     div.swiper-slide CA
-  //-     div.swiper-slide CO
-  //-     div.swiper-slide CT
-  //-     div.swiper-slide DE
-  //-     div.swiper-slide FL
-  //-     div.swiper-slide GA
-  //-     div.swiper-slide HI
-  //-     div.swiper-slide ID
-  //-     div.swiper-slide IL
-  //-     div.swiper-slide IN
-  //-     div.swiper-slide IA
-  //-     div.swiper-slide KS
-  //-     div.swiper-slide KY
-  //-     div.swiper-slide LA
-  //-     div.swiper-slide ME
-  //-     div.swiper-slide MD
-  //-     div.swiper-slide MA
-  //-     div.swiper-slide MI
-  //-     div.swiper-slide MN
-  //-     div.swiper-slide MS
-  //-     div.swiper-slide MO
-  //-     div.swiper-slide MT
-  //-     div.swiper-slide NE
-  //-     div.swiper-slide NV
-  //-     div.swiper-slide NH
-  //-     div.swiper-slide NJ
-  //-     div.swiper-slide NM
-  //-     div.swiper-slide NY
-  //-     div.swiper-slide NC
-  //-     div.swiper-slide ND
-  //-     div.swiper-slide OH
-  //-     div.swiper-slide OK
-  //-     div.swiper-slide OR
-  //-     div.swiper-slide PA
-  //-     div.swiper-slide RI
-  //-     div.swiper-slide SC
-  //-     div.swiper-slide SD
-  //-     div.swiper-slide TN
-  //-     div.swiper-slide TX
-  //-     div.swiper-slide UT
-  //-     div.swiper-slide VT
-  //-     div.swiper-slide VA
-  //-     div.swiper-slide WA
-  //-     div.swiper-slide WV
-  //-     div.swiper-slide WI
-  //-     div.swiper-slide WY
+  .state-picker
+    .swiper-wrapper
+      div.swiper-slide National
+      div.swiper-slide Ala.
+      div.swiper-slide Alaska
+      div.swiper-slide Ariz.
+      div.swiper-slide Ark.
+      div.swiper-slide Calif.
+      div.swiper-slide Colo.
+      div.swiper-slide Conn.
+      div.swiper-slide Del.
+      div.swiper-slide Fla.
+      div.swiper-slide Ga.
+      div.swiper-slide Hawaii
+      div.swiper-slide Idaho
+      div.swiper-slide Ill.
+      div.swiper-slide Ind.
+      div.swiper-slide Iowa
+      div.swiper-slide Kan.
+      div.swiper-slide Ky.
+      div.swiper-slide La.
+      div.swiper-slide Maine
+      div.swiper-slide Md.
+      div.swiper-slide Mass.
+      div.swiper-slide Mich
+      div.swiper-slide Minn.
+      div.swiper-slide Miss.
+      div.swiper-slide Mo.
+      div.swiper-slide Mont.
+      div.swiper-slide Neb.
+      div.swiper-slide Nev.
+      div.swiper-slide N.H.
+      div.swiper-slide N.J.
+      div.swiper-slide N.M.
+      div.swiper-slide N.Y.
+      div.swiper-slide N.C.
+      div.swiper-slide N.D.
+      div.swiper-slide Ohio
+      div.swiper-slide Okla.
+      div.swiper-slide Ore.
+      div.swiper-slide Pa.
+      div.swiper-slide R.I.
+      div.swiper-slide S.C.
+      div.swiper-slide S.D.
+      div.swiper-slide Tenn.
+      div.swiper-slide Texas
+      div.swiper-slide Utah
+      div.swiper-slide Vt.
+      div.swiper-slide Va.
+      div.swiper-slide Wash.
+      div.swiper-slide W. Va.
+      div.swiper-slide Wis.
+      div.swiper-slide Wyo.
