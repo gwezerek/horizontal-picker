@@ -7,7 +7,6 @@
 
 var pageconfig = require('../data/pageconfig.json');
 var $ = require('jquery');
-var slick = require('slick-carousel');
 var swiper = require('swiper');
 
 // $('.slick-ol').slick({
@@ -40,10 +39,26 @@ var swiper = require('swiper');
 
 
 
-$('.slick-ol').slick({
-  arrows: false,
-  centerMode: true,
-  variableWidth: true,
-  slidesToShow: 3,
-  centerPadding: '100px'
-});
+// $('.slick-ol').slick({
+//   arrows: false,
+//   centerMode: true,
+//   variableWidth: true,
+//   slidesToShow: 3,
+//   centerPadding: '100px'
+// });
+
+
+$(document).ready(function () {
+    //initialize swiper when document ready
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 3,
+      // spaceBetween: 10,
+      freeMode: true,
+      freeModeSticky: true,
+      freeModeMomentumRatio: 0.5,
+      centeredSlides: true,
+      loop: true,
+      loopedSlides: 50
+      // spaceBetween: 80
+    });
+  });
